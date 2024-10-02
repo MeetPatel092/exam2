@@ -1,0 +1,684 @@
+[
+  {
+    "bids": [
+      {
+        "amount": 987,
+        "auction_id": 38,
+        "bidder_id": 184,
+        "created_at": "2016-11-17T00:41:43+00:00",
+        "id": 407,
+        "updated_at": "2016-11-17T00:41:43+00:00",
+        "bidder": {
+          "created_at": "2016-03-17T21:49:09+00:00",
+          "duns_number": "080191524",
+          "github_id": "16813183",
+          "github_login": "sowmyakakkireni",
+          "id": 184,
+          "name": "SAASTREE LLC",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-10-19T02:21:24+00:00"
+        }
+      },
+      {
+        "amount": 950,
+        "auction_id": 38,
+        "bidder_id": 174,
+        "created_at": "2016-11-17T02:35:56+00:00",
+        "id": 408,
+        "updated_at": "2016-11-17T02:35:56+00:00",
+        "bidder": {
+          "created_at": "2016-03-14T15:31:58+00:00",
+          "duns_number": "080194337",
+          "github_id": "30856",
+          "github_login": "dsummersl",
+          "id": 174,
+          "name": "Summers, Dane",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-09-27T12:55:46+00:00"
+        }
+      },
+      {
+        "amount": 900,
+        "auction_id": 38,
+        "bidder_id": 27,
+        "created_at": "2016-11-17T03:07:31+00:00",
+        "id": 409,
+        "updated_at": "2016-11-17T03:07:31+00:00",
+        "bidder": {
+          "created_at": "2015-12-29T15:10:46+00:00",
+          "duns_number": "080251758",
+          "github_id": "1186124",
+          "github_login": "saulshanabrook",
+          "id": 27,
+          "name": "Saul Shanabrook",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-11-17T03:12:58+00:00"
+        }
+      },
+      {
+        "amount": 300,
+        "auction_id": 38,
+        "bidder_id": 346,
+        "created_at": "2016-11-17T04:08:21+00:00",
+        "id": 410,
+        "updated_at": "2016-11-17T04:08:21+00:00",
+        "bidder": {
+          "created_at": "2016-09-29T15:15:10+00:00",
+          "duns_number": "078783389",
+          "github_id": "52534",
+          "github_login": "mikejihbe",
+          "id": 346,
+          "name": "Mike Ihbe",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-12-09T00:35:36+00:00"
+        }
+      },
+      {
+        "amount": 800,
+        "auction_id": 38,
+        "bidder_id": 284,
+        "created_at": "2016-11-18T17:07:51+00:00",
+        "id": 411,
+        "updated_at": "2016-11-18T17:07:51+00:00",
+        "bidder": {
+          "created_at": "2016-08-30T13:26:42+00:00",
+          "duns_number": "07-971-9608",
+          "github_id": "21337217",
+          "github_login": "4S-Silversword",
+          "id": 284,
+          "name": "Elias Senter",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-10-21T21:33:17+00:00"
+        }
+      },
+      {
+        "amount": 1599,
+        "auction_id": 38,
+        "bidder_id": 408,
+        "created_at": "2016-11-18T17:48:06+00:00",
+        "id": 412,
+        "updated_at": "2016-11-18T17:48:06+00:00",
+        "bidder": {
+          "created_at": "2016-11-16T22:17:28+00:00",
+          "duns_number": "023851625",
+          "github_id": "1135884",
+          "github_login": "radurosu",
+          "id": 408,
+          "name": "Radu Rosu",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-11-16T22:22:19+00:00"
+        }
+      }
+    ],
+    "created_at": "2016-10-07T22:17:43+00:00",
+    "customer": "18F - Tock",
+    "description": "**As a user, I want a clickable link which will add hours for a specific line item to my current time card so that it's easier to contemporaneously track my time in Tock.**\r\n\r\nThis project is a [sealed bid auction](https:\/\/micropurchase.18f.gov\/auctions\/rules\/sealed-bid).\r\n\r\n---\r\n\r\n### Acceptance criteria \r\n\r\n**Scenario: Clicking a link with valid structure**\r\n- Given I am an authenticated Tock user\r\n- And I have entered a Tock URL* into the browser address bar\r\n- And it contains an [add hours command]\r\n- And it defines a valid \u2018project number\u2019 value\r\n- And it defines a numeric \u2018hours\u2019 value\r\n- When I hit submit and load the page\r\n- Then the defined time will be added to the user\u2019s unsubmitted timecard during the present reporting period for the defined project\r\n- And my current timecard page will load\r\n- And that page will display a confirmation message stating, \u201c[Time] hours have been added to [Project name].\u201d\r\n- And the confirmation message will have an \u201cUndo\u201d link\r\n\r\n*Note: URL structure should be `\/addHours?project=231&hours=1` \r\n\r\n**Scenario: Undoing an \u2018Add Hours\u2019 addition**\r\n- Given I am an authenticated Tock user\r\n- And I am on the timecard page\r\n- And I just added time to a project via a Tock URL with valid \u2018Add Hours\u2019 command and values\r\n- When I click on the \u2018Undo\u2019 link in the confirmation message\r\n- Then the hours just added will be removed from the defined project\r\n- And I will see a confirmation message stating, \u201c[Hours value] has been removed from [project name].\u201d\r\n\r\n**Scenario: Loading a Tock \u2018Add Hours\u2019 URL with invalid structure**\r\n- Given I am an authenticated Tock user\r\n- And I have entered a Tock URL into the browser address bar\r\n- And it contains the [add hours command]\r\n- And it does NOT include valid project and hour values\r\n- When I hit submit and load the page\r\n- Then my current timecard page will load\r\n- And it will display an error stating, \u201cOops. That command was not correct and no time was added to your timecard. Try again by entering a URL with this format: `tock.gov\/addHours?project=231&hours=1`\r\n\r\n### General acceptance criteria \r\n\r\n- B or better Code Climate grade and 90% or higher test coverage for all modifications.\r\n- Tests adequately cover any new functionality.\r\n- Tests run on Travis-CI and do not break the build.\r\n- A payment URL is [specified in your micro-purchase profile](https:\/\/micropurchase.18f.gov\/docs\/getting_paid) so we can pay the award",
+    "ended_at": "2016-11-18T18:00:00+00:00",
+    "github_repo": "https:\/\/github.com\/18F\/tock\/",
+    "id": 38,
+    "issue_url": "https:\/\/github.com\/18F\/tock\/issues\/511",
+    "skills": [
+      "CSS",
+      "Django",
+      "HTML",
+      "Python"
+    ],
+    "start_price": 3500,
+    "started_at": "2016-11-16T18:00:00+00:00",
+    "summary": "We want the ability to create URLs that users at 18F can click to automatically add a URL-defined amount of time to a URL-defined Tock project.",
+    "title": "Timecard \"intent\" URLs for Tock",
+    "type": "sealed_bid",
+    "updated_at": "2016-12-09T01:05:13+00:00",
+    "winning_bid": {
+      "amount": 300,
+      "bidder_id": 346
+    }
+  },
+  {
+    "bids": [
+      {
+        "amount": 492,
+        "auction_id": 43,
+        "bidder_id": 37,
+        "created_at": "2016-10-19T17:13:11+00:00",
+        "id": 397,
+        "updated_at": "2016-10-19T17:13:11+00:00",
+        "bidder": {
+          "created_at": "2015-12-29T18:02:46+00:00",
+          "duns_number": "080039148",
+          "github_id": "461046",
+          "github_login": "jmduke",
+          "id": 37,
+          "name": "Justin Duke",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-07-28T17:31:33+00:00"
+        }
+      },
+      {
+        "amount": 2002,
+        "auction_id": 43,
+        "bidder_id": 206,
+        "created_at": "2016-10-19T21:18:28+00:00",
+        "id": 399,
+        "updated_at": "2016-10-19T21:18:28+00:00",
+        "bidder": {
+          "created_at": "2016-05-06T22:10:16+00:00",
+          "duns_number": "144182268",
+          "github_id": "1002266",
+          "github_login": "scottt2",
+          "id": 206,
+          "name": "Scott Construction, Inc.",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-06-20T18:42:45+00:00"
+        }
+      },
+      {
+        "amount": 1350,
+        "auction_id": 43,
+        "bidder_id": 65,
+        "created_at": "2016-10-20T11:47:21+00:00",
+        "id": 401,
+        "updated_at": "2016-10-20T11:47:21+00:00",
+        "bidder": {
+          "created_at": "2016-01-04T20:57:17+00:00",
+          "duns_number": "080024708",
+          "github_id": "11858095",
+          "github_login": "ry99",
+          "id": 65,
+          "name": "Ry Bobko",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-05-04T19:25:42+00:00"
+        }
+      },
+      {
+        "amount": 1198,
+        "auction_id": 43,
+        "bidder_id": 346,
+        "created_at": "2016-10-21T05:37:24+00:00",
+        "id": 403,
+        "updated_at": "2016-10-21T05:37:24+00:00",
+        "bidder": {
+          "created_at": "2016-09-29T15:15:10+00:00",
+          "duns_number": "078783389",
+          "github_id": "52534",
+          "github_login": "mikejihbe",
+          "id": 346,
+          "name": "Mike Ihbe",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-12-09T00:35:36+00:00"
+        }
+      },
+      {
+        "amount": 499,
+        "auction_id": 43,
+        "bidder_id": 219,
+        "created_at": "2016-10-21T15:21:29+00:00",
+        "id": 406,
+        "updated_at": "2016-10-21T15:21:29+00:00",
+        "bidder": {
+          "created_at": "2016-06-09T02:28:58+00:00",
+          "duns_number": "07-925-4443",
+          "github_id": "1409810",
+          "github_login": "patvin80",
+          "id": 219,
+          "name": "Vinit Patankar",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-06-09T02:30:26+00:00"
+        }
+      }
+    ],
+    "created_at": "2016-10-14T21:09:57+00:00",
+    "customer": "OPP - Open Opps",
+    "description": "**Scenario: Authenticated user sees on a participant's profile page all the opportunities they've been assigned or completed**\r\n\r\n- Given I am an authenticated user\r\n- And there is a participant\r\n- And that participant has participated in an opportunity\r\n- When I go to that participant's profile page\r\n- Then I should see the name of each opportunity listed in the section labeled \"Participated\"\r\n- And I should see the created date of that opportunity\r\n- And I should see the status of that opportunity (Assigned or Completed)\r\n- And the opportunity name should link to the show page for that opportunity (https:\/\/openopps.18f.gov\/tasks\/[id])\r\n\r\n## General acceptance criteria\r\n- Test coverage stays the same or increases\r\n- Tests pass\r\n- **A payment URL is specified in your micro-purchase profile so we can pay the award**\r\n\r\n## Notes\r\n\r\nWhen a person participates in and completes an Opportunity it is not showing in their profile. The example is Jessica Skretch who just completed Be a Mobile Tester for DHS.gov \r\n(https:\/\/openopps.digitalgov.gov\/tasks\/547).\r\n\r\n![screen shot 2016-10-12 at 5 01 22 pm](https:\/\/cloud.githubusercontent.com\/assets\/9039852\/19327594\/b506a33a-909d-11e6-824f-ee6478f496c6.png)\r\n\r\n<img width=\"1166\" alt=\"screen shot 2016-10-14 at 12 36 38 pm\" src=\"https:\/\/cloud.githubusercontent.com\/assets\/100149\/19400402\/e58023ce-920a-11e6-9e0f-41abbc20d83f.png\">\r\n\r\nUse the label design below for the \"Assigned\/Completed\" indicators\r\n\r\n![screen shot 2016-10-19 at 10 51 05 am](https:\/\/cloud.githubusercontent.com\/assets\/100149\/19524066\/6070103e-95d1-11e6-9e50-7259c77b5699.png)\r\n\r\n\r\n\r\n\r\n",
+    "ended_at": "2016-10-21T17:00:00+00:00",
+    "github_repo": "https:\/\/github.com\/openopps\/openopps-platform\/",
+    "id": 43,
+    "issue_url": "https:\/\/github.com\/openopps\/openopps-platform\/issues\/1486",
+    "skills": [
+      "Backbone.js",
+      "Chai",
+      "JavaScript",
+      "Mocha",
+      "Node.js",
+      "Sails.js"
+    ],
+    "start_price": 2500,
+    "started_at": "2016-10-19T17:00:00+00:00",
+    "summary": "So that participants and any user can better keep track of what people are doing and have done, the user profile page should show all the opportunities that user has been assigned or completed",
+    "title": "As a user, want to be able to see on a participant's profile page all the tasks they are assigned or have completed.",
+    "type": "sealed_bid",
+    "updated_at": "2016-11-01T17:01:23+00:00",
+    "winning_bid": {
+      "amount": 492,
+      "bidder_id": 37
+    }
+  },
+  {
+    "bids": [
+      {
+        "amount": 391,
+        "auction_id": 44,
+        "bidder_id": 37,
+        "created_at": "2016-10-19T17:13:22+00:00",
+        "id": 398,
+        "updated_at": "2016-10-19T17:13:22+00:00",
+        "bidder": {
+          "created_at": "2015-12-29T18:02:46+00:00",
+          "duns_number": "080039148",
+          "github_id": "461046",
+          "github_login": "jmduke",
+          "id": 37,
+          "name": "Justin Duke",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-07-28T17:31:33+00:00"
+        }
+      },
+      {
+        "amount": 1001,
+        "auction_id": 44,
+        "bidder_id": 206,
+        "created_at": "2016-10-19T21:18:44+00:00",
+        "id": 400,
+        "updated_at": "2016-10-19T21:18:44+00:00",
+        "bidder": {
+          "created_at": "2016-05-06T22:10:16+00:00",
+          "duns_number": "144182268",
+          "github_id": "1002266",
+          "github_login": "scottt2",
+          "id": 206,
+          "name": "Scott Construction, Inc.",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-06-20T18:42:45+00:00"
+        }
+      },
+      {
+        "amount": 749,
+        "auction_id": 44,
+        "bidder_id": 346,
+        "created_at": "2016-10-21T05:36:36+00:00",
+        "id": 402,
+        "updated_at": "2016-10-21T05:36:36+00:00",
+        "bidder": {
+          "created_at": "2016-09-29T15:15:10+00:00",
+          "duns_number": "078783389",
+          "github_id": "52534",
+          "github_login": "mikejihbe",
+          "id": 346,
+          "name": "Mike Ihbe",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-12-09T00:35:36+00:00"
+        }
+      },
+      {
+        "amount": 298,
+        "auction_id": 44,
+        "bidder_id": 334,
+        "created_at": "2016-10-21T14:29:45+00:00",
+        "id": 404,
+        "updated_at": "2016-10-21T14:29:45+00:00",
+        "bidder": {
+          "created_at": "2016-09-22T13:50:17+00:00",
+          "duns_number": "080192881",
+          "github_id": "18625",
+          "github_login": "ulfmagnetics",
+          "id": 334,
+          "name": "John Berry",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-10-24T17:43:15+00:00"
+        }
+      },
+      {
+        "amount": 369,
+        "auction_id": 44,
+        "bidder_id": 219,
+        "created_at": "2016-10-21T15:19:04+00:00",
+        "id": 405,
+        "updated_at": "2016-10-21T15:19:04+00:00",
+        "bidder": {
+          "created_at": "2016-06-09T02:28:58+00:00",
+          "duns_number": "07-925-4443",
+          "github_id": "1409810",
+          "github_login": "patvin80",
+          "id": 219,
+          "name": "Vinit Patankar",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-06-09T02:30:26+00:00"
+        }
+      }
+    ],
+    "created_at": "2016-10-14T21:13:04+00:00",
+    "customer": "OPP - Open Opps",
+    "description": "As a visitor to the site who is only concerned with a specific Agency's opportunities, I want to be able to see a page that shows only that Agency's opportunities.\r\n\r\n**Scenario: I see all open opportunities for GSA (or any agency) when I go to a certain URL**\r\n- Given there are opportunities that are restricted to GSA (or any agency)\r\n- When I go to this URL: https:\/\/openopps.18f.gov\/tasks?agency=[abbr]\r\n- Then my view should be pre-filtered to only opportunities restricted to that agency\r\n- And the filter for that agency should be checked (in this case, the filter labeled \"Restrict to General Services Administration (GSA) agency\" should be checked)\r\n\r\n**Scenario: Clicking on \"See more [Agency Name (abbr)] opportunities\" link takes me to the pre-filtered tasks page.**\r\n- Given I am on the dashboard page\r\n- When I click on the  \"See more [Agency Name (abbreviation) opportunities\" link\r\n- Then I am taken to the task page URL (https:\/\/openopps.18f.gov\/tasks?agency=[abbr]) and my view is pre-filtered to only those agency opportunities\r\n- And the filter for that agency should be checked (in this case, the filter labeled \"Restrict to General Services Administration (GSA) agency\" should be checked)\r\n\r\n## General acceptance criteria\r\n- Test coverage stays the same or increases\r\n- Tests pass\r\n- **A payment URL is specified in your micro-purchase profile so we can pay the award**",
+    "ended_at": "2016-10-21T17:00:00+00:00",
+    "github_repo": "https:\/\/github.com\/openopps\/openopps-platform\/",
+    "id": 44,
+    "issue_url": "https:\/\/github.com\/openopps\/openopps-platform\/issues\/1466",
+    "skills": [
+      "Backbone.js",
+      "Chai",
+      "JavaScript",
+      "Mocha",
+      "Sails.js"
+    ],
+    "start_price": 1500,
+    "started_at": "2016-10-19T17:00:00+00:00",
+    "summary": "As an agency admin, there should be an easy way for me to see and filter through all agency only opportunities, so there should be a single URL that will allow me to see those opportunities",
+    "title": "URL for view of all Agency scoped opportunities",
+    "type": "sealed_bid",
+    "updated_at": "2016-10-31T19:36:16+00:00",
+    "winning_bid": {
+      "amount": 298,
+      "bidder_id": 334
+    }
+  },
+  {
+    "bids": [
+      {
+        "amount": 1485,
+        "auction_id": 40,
+        "bidder_id": 30,
+        "created_at": "2016-10-17T17:50:25+00:00",
+        "id": 378,
+        "updated_at": "2016-10-17T17:50:25+00:00",
+        "bidder": {
+          "created_at": "2015-12-29T16:14:47+00:00",
+          "duns_number": "080033077",
+          "github_id": "387035",
+          "github_login": "cwarden",
+          "id": 30,
+          "name": "Christian G. Warden",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-06-06T22:25:57+00:00"
+        }
+      },
+      {
+        "amount": 1400,
+        "auction_id": 40,
+        "bidder_id": 334,
+        "created_at": "2016-10-17T18:23:06+00:00",
+        "id": 381,
+        "updated_at": "2016-10-17T18:23:06+00:00",
+        "bidder": {
+          "created_at": "2016-09-22T13:50:17+00:00",
+          "duns_number": "080192881",
+          "github_id": "18625",
+          "github_login": "ulfmagnetics",
+          "id": 334,
+          "name": "John Berry",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-10-24T17:43:15+00:00"
+        }
+      },
+      {
+        "amount": 980,
+        "auction_id": 40,
+        "bidder_id": 174,
+        "created_at": "2016-10-18T12:14:05+00:00",
+        "id": 382,
+        "updated_at": "2016-10-18T12:14:05+00:00",
+        "bidder": {
+          "created_at": "2016-03-14T15:31:58+00:00",
+          "duns_number": "080194337",
+          "github_id": "30856",
+          "github_login": "dsummersl",
+          "id": 174,
+          "name": "Summers, Dane",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-09-27T12:55:46+00:00"
+        }
+      },
+      {
+        "amount": 1200,
+        "auction_id": 40,
+        "bidder_id": 307,
+        "created_at": "2016-10-18T16:38:19+00:00",
+        "id": 383,
+        "updated_at": "2016-10-18T16:38:19+00:00",
+        "bidder": {
+          "created_at": "2016-09-08T16:42:47+00:00",
+          "duns_number": "079332150",
+          "github_id": "6034070",
+          "github_login": "thecrownjoel",
+          "id": 307,
+          "name": "Joel Kendall",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-09-08T16:43:26+00:00"
+        }
+      },
+      {
+        "amount": 391,
+        "auction_id": 40,
+        "bidder_id": 37,
+        "created_at": "2016-10-19T01:44:03+00:00",
+        "id": 387,
+        "updated_at": "2016-10-19T01:44:03+00:00",
+        "bidder": {
+          "created_at": "2015-12-29T18:02:46+00:00",
+          "duns_number": "080039148",
+          "github_id": "461046",
+          "github_login": "jmduke",
+          "id": 37,
+          "name": "Justin Duke",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-07-28T17:31:33+00:00"
+        }
+      },
+      {
+        "amount": 1033,
+        "auction_id": 40,
+        "bidder_id": 184,
+        "created_at": "2016-10-19T02:14:51+00:00",
+        "id": 388,
+        "updated_at": "2016-10-19T02:14:51+00:00",
+        "bidder": {
+          "created_at": "2016-03-17T21:49:09+00:00",
+          "duns_number": "080191524",
+          "github_id": "16813183",
+          "github_login": "sowmyakakkireni",
+          "id": 184,
+          "name": "SAASTREE LLC",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-10-19T02:21:24+00:00"
+        }
+      },
+      {
+        "amount": 299,
+        "auction_id": 40,
+        "bidder_id": 44,
+        "created_at": "2016-10-19T10:35:56+00:00",
+        "id": 389,
+        "updated_at": "2016-10-19T10:35:56+00:00",
+        "bidder": {
+          "created_at": "2015-12-29T23:22:12+00:00",
+          "duns_number": "080014807",
+          "github_id": "1451399",
+          "github_login": "dsiddy",
+          "id": 44,
+          "name": "Dan Siddoway",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-09-08T04:23:09+00:00"
+        }
+      },
+      {
+        "amount": 1100,
+        "auction_id": 40,
+        "bidder_id": 34,
+        "created_at": "2016-10-19T13:37:21+00:00",
+        "id": 392,
+        "updated_at": "2016-10-19T13:37:21+00:00",
+        "bidder": {
+          "created_at": "2015-12-29T17:29:09+00:00",
+          "duns_number": "078327018",
+          "github_id": "6887045",
+          "github_login": "markcreyn",
+          "id": 34,
+          "name": "",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-10-19T13:36:41+00:00"
+        }
+      },
+      {
+        "amount": 499,
+        "auction_id": 40,
+        "bidder_id": 219,
+        "created_at": "2016-10-19T13:45:52+00:00",
+        "id": 393,
+        "updated_at": "2016-10-19T13:45:52+00:00",
+        "bidder": {
+          "created_at": "2016-06-09T02:28:58+00:00",
+          "duns_number": "07-925-4443",
+          "github_id": "1409810",
+          "github_login": "patvin80",
+          "id": 219,
+          "name": "Vinit Patankar",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-06-09T02:30:26+00:00"
+        }
+      },
+      {
+        "amount": 2002,
+        "auction_id": 40,
+        "bidder_id": 206,
+        "created_at": "2016-10-19T16:28:19+00:00",
+        "id": 395,
+        "updated_at": "2016-10-19T16:28:19+00:00",
+        "bidder": {
+          "created_at": "2016-05-06T22:10:16+00:00",
+          "duns_number": "144182268",
+          "github_id": "1002266",
+          "github_login": "scottt2",
+          "id": 206,
+          "name": "Scott Construction, Inc.",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-06-20T18:42:45+00:00"
+        }
+      }
+    ],
+    "created_at": "2016-10-07T23:41:05+00:00",
+    "customer": "OPP - Open Opps",
+    "description": "Right now task creators cannot see email address for their potential participants in their profiles.  The images below are what they see.  Only when they are given admin rights do the email addresses become visible.\r\n\r\n**Scenario: Task creators see email addresses of participants when viewing the participant's profile**\r\n\r\n- Given I am an authenticated task creator\r\n- And I am not an admin\r\n- And there is a participant in the system\r\n- And the participant has an email address\r\n- When I go to the profile page for a participant (https:\/\/openopps.18f.gov\/profile\/[id])\r\n- Then I should see the email address for that participant next to the email icon\r\n\r\n![screen shot 2016-05-26 at 1 13 04 pm](https:\/\/cloud.githubusercontent.com\/assets\/9039852\/15583405\/aacc5e22-2343-11e6-8e85-7cfddd901744.png)\r\n\r\n![screen shot 2016-05-26 at 1 20 51 pm](https:\/\/cloud.githubusercontent.com\/assets\/9039852\/15583671\/ca93f3e0-2344-11e6-8bb9-78690728897b.png)\r\n\r\n## General acceptance criteria\r\n\r\n- Test coverage stays the same or increases\r\n- Tests pass\r\n- **A payment URL is specified in your micro-purchase profile so we can pay the award**",
+    "ended_at": "2016-10-19T17:00:00+00:00",
+    "github_repo": "https:\/\/github.com\/openopps\/openopps-platform\/",
+    "id": 40,
+    "issue_url": "https:\/\/github.com\/openopps\/openopps-platform\/issues\/1356",
+    "skills": [
+      "Backbone.js",
+      "Chai",
+      "JavaScript",
+      "Mocha",
+      "Sails.js"
+    ],
+    "start_price": 2500,
+    "started_at": "2016-10-17T17:00:00+00:00",
+    "summary": "So that they can correspond with applicants via email, the task creators should be able to get the applicant's email address by looking at the applicant's profile. Right now, only admins can do this.",
+    "title": "Task creators can see the email address of applicants on the profile page",
+    "type": "sealed_bid",
+    "updated_at": "2016-10-17T22:27:30+00:00",
+    "winning_bid": {
+      "amount": 299,
+      "bidder_id": 44
+    }
+  },
+  {
+    "bids": [
+      {
+        "amount": 3498,
+        "auction_id": 39,
+        "bidder_id": 30,
+        "created_at": "2016-10-17T17:52:57+00:00",
+        "id": 380,
+        "updated_at": "2016-10-17T17:52:57+00:00",
+        "bidder": {
+          "created_at": "2015-12-29T16:14:47+00:00",
+          "duns_number": "080033077",
+          "github_id": "387035",
+          "github_login": "cwarden",
+          "id": 30,
+          "name": "Christian G. Warden",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-06-06T22:25:57+00:00"
+        }
+      },
+      {
+        "amount": 800,
+        "auction_id": 39,
+        "bidder_id": 307,
+        "created_at": "2016-10-18T16:38:34+00:00",
+        "id": 385,
+        "updated_at": "2016-10-18T16:38:34+00:00",
+        "bidder": {
+          "created_at": "2016-09-08T16:42:47+00:00",
+          "duns_number": "079332150",
+          "github_id": "6034070",
+          "github_login": "thecrownjoel",
+          "id": 307,
+          "name": "Joel Kendall",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-09-08T16:43:26+00:00"
+        }
+      },
+      {
+        "amount": 399,
+        "auction_id": 39,
+        "bidder_id": 44,
+        "created_at": "2016-10-19T10:39:37+00:00",
+        "id": 390,
+        "updated_at": "2016-10-19T10:39:37+00:00",
+        "bidder": {
+          "created_at": "2015-12-29T23:22:12+00:00",
+          "duns_number": "080014807",
+          "github_id": "1451399",
+          "github_login": "dsiddy",
+          "id": 44,
+          "name": "Dan Siddoway",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-09-08T04:23:09+00:00"
+        }
+      },
+      {
+        "amount": 3003,
+        "auction_id": 39,
+        "bidder_id": 206,
+        "created_at": "2016-10-19T16:27:39+00:00",
+        "id": 394,
+        "updated_at": "2016-10-19T16:27:39+00:00",
+        "bidder": {
+          "created_at": "2016-05-06T22:10:16+00:00",
+          "duns_number": "144182268",
+          "github_id": "1002266",
+          "github_login": "scottt2",
+          "id": 206,
+          "name": "Scott Construction, Inc.",
+          "sam_status": "sam_accepted",
+          "updated_at": "2016-06-20T18:42:45+00:00"
+        }
+      }
+    ],
+    "created_at": "2016-10-07T23:36:38+00:00",
+    "customer": "OPP - Open Opps",
+    "description": "When someone applies to a part time opportunity, this notification gets sent to the creator. \"Part time\" is a Agency-only (GSA-only for now) task that is not a full-time detail. This is a system notification for Agency-restricted opportunities. We want to do this in a way that can scale for other agencies.\r\n\r\nThis story contemplates creating custom notifications for Agency-restricted opportunities. And creating one for Agency-restricted opportunities that are not full-time details. Right now full-time details are hard-coded to be a GSA only opportunity type this needs to be generalized as well\r\n\r\nSuggested implementation\r\n- `api\/notifications\/task.create.draft\/template.html` _default notification_\r\n- `api\/notifications\/<AGENCY_ABBREVIATION\/task.create.draft\/template.html` _custom to an agency if it exists_\r\n\r\n``` yaml\r\n\r\nPart-Time Opportunity - Someone has just applied\r\nDear:\r\n\r\nYou have a new applicant for your opportunity. Their profile can be viewed here <insert link to profile>.\r\n\r\nAll applicants have self-certified that they meet eligibility requirements.  \r\n\r\nPlease follow the steps below:\r\nReview all candidates and select your top pick(s).  If needed, reach out to those candidates to discuss the opportunity and ask any questions you may have about their profile or statement of interest. Once you are ready to make your selection, we encourage you to contact the selected applicant's supervisor to confirm that he\/she is on board with the employee's participation.\r\nContact the selected candidate and discuss next steps for beginning the opportunity. You must also assign the opportunity in the system by doing the following:\r\nClick to Edit your opportunity\r\nRemove the non-selected participants from the opportunity under the \u201cParticipants\u201d section\r\nChange the opportunity state to \u201cAssigned.\u201d  This will send notifications to the candidates.\r\n\r\nIf you have any questions, feel free to reach out to us at gsarotationprogram@gsa.gov.\r\n\r\nThank you,\r\n<signature>\r\n\r\n```\r\n\r\n## Notes\r\nThis has already been partially implemented. We're just looking for some help to complete the work.\r\n\r\n## General acceptance criteria\r\n- Test coverage stays the same or increases\r\n- Tests pass\r\n- **A payment URL is specified in your micro-purchase profile so we can pay the award**",
+    "ended_at": "2016-10-19T17:00:00+00:00",
+    "github_repo": "https:\/\/github.com\/openopps\/openopps-platform\/",
+    "id": 39,
+    "issue_url": "https:\/\/github.com\/openopps\/openopps-platform\/issues\/1453",
+    "skills": [
+      "Backbone.js",
+      "Chai",
+      "Mocha",
+      "Node.js",
+      "Sails.js"
+    ],
+    "start_price": 3500,
+    "started_at": "2016-10-17T17:00:00+00:00",
+    "summary": "We'd like to notify a task creator when someone has applied for a task so that the application can be evaluated",
+    "title": "Part-time opportunity: Notification to creator that someone has applied",
+    "type": "sealed_bid",
+    "updated_at": "2016-10-17T22:28:41+00:00",
+    "winning_bid": {
+      "amount": 399,
+      "bidder_id": 44
+    }
+  }
+
+
+]
